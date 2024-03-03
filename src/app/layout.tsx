@@ -27,28 +27,34 @@ export default function RootLayout({ children }: ExamplesLayoutProps) {
     <html>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
-          <header className="border-b">
-            <div className="flex justify-between h-16 items-center px-4">
-              <div className="mr-10 flex items-center space-x-4">
-                <IconNav />
-                <UserNav />
-              </div>
-              <MainNav className="mx-auto" />
-              <div className="ml-10 flex items-center space-x-4">
-                <Search />
+          <header className="">
+            <div className="flex justify-around h-16 items-center pl-4">
+              <IconNav />
+              <div className="container max-w-screen-xl mx-auto">
+                <div className="flex justify-start h-16 items-center">
+                  <div className="mr-10 flex items-center space-x-4">
+                    <UserNav />
+                  </div>
+                  <MainNav className="mx-auto" />
+                  <div className="ml-auto flex items-center space-x-4">
+                    <Search />
+                  </div>
+                </div>
               </div>
             </div>
           </header>
           <main className="flex-1">{children}</main>
-          <footer className="border-t">
-            <div className="flex justify-between lg:justify-center flex-col lg:flex-row items-center min-h-16 space-y-4 px-4 py-4">
-              <Link
-                href="/"
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-              >
-                Valley Sales Inc.
-              </Link>
-              <FooterNav className="mx-auto flex-wrap lg:ml-auto lg:mr-0" />
+          <footer className="">
+            <div className="container max-w-screen-xl mx-auto">
+              <div className="flex justify-between lg:justify-center flex-col lg:flex-row items-center min-h-16 space-y-4 py-4">
+                <Link
+                  href="/"
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+                >
+                  Valley Sales Inc.
+                </Link>
+                <FooterNav className="mx-auto flex-wrap lg:ml-auto lg:mr-0" />
+              </div>
             </div>
           </footer>
         </div>
