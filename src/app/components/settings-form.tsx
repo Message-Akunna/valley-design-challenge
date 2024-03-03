@@ -82,7 +82,7 @@ export function SettingsForm() {
         id="settings-form"
       >
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-12">
-          <div className="col-span-6 ">
+          <div className="col-span-6">
             <FormField
               control={form.control}
               name="name"
