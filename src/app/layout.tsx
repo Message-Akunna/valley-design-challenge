@@ -28,15 +28,15 @@ export default function RootLayout({ children }: ExamplesLayoutProps) {
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
           <header className="">
-            <div className="flex justify-around h-16 items-center pl-4">
-              <IconNav />
-              <div className="container max-w-screen-xl mx-auto">
+            <div className="flex justify-around h-16 items-center">
+              <div className="container max-w-screen-xl mx-auto relative">
                 <div className="flex justify-start h-16 items-center">
-                  <div className="mr-10 flex items-center space-x-4">
+                  <IconNav className="flex transition-all 2xl:absolute 2xl:top-0 2xl:left-0 2xl:-translate-x-1/2 2xl:pt-2" />
+                  <div className="ml-auto lg:ml-0 flex items-center space-x-4">
                     <UserNav />
                   </div>
                   <MainNav className="mx-auto" />
-                  <div className="ml-auto flex items-center space-x-4">
+                  <div className="ml-2 xl:ml-auto flex items-center space-x-4">
                     <Search />
                   </div>
                 </div>

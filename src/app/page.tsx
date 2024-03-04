@@ -41,7 +41,7 @@ export default function DashboardPage() {
         <TabsContent value="company-info" className="space-y-12">
           <div className="flex flex-col md:flex-row items-center justify-start md:justify-between">
             <div className="flex items-center w-full md:w-auto order-2 md:order-1">
-              <Avatar className="flex h-16 w-16 sm:h-20 sm:w-20 lg:h-[108px] lg:w-[108px] items-center justify-center space-y-0 p-3 bg-primary">
+              <Avatar className="flex h-20 w-20 lg:h-[108px] lg:w-[108px] items-center justify-center space-y-0 p-3 bg-primary">
                 <AvatarImage src="/images/shutter.png" alt="Avatar" />
                 <AvatarFallback>SH</AvatarFallback>
               </Avatar>
