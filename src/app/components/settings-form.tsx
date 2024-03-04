@@ -21,10 +21,10 @@ import {
   SelectTrigger,
 } from "@/src/components/ui/select";
 import { ToggleGroup, ToggleGroupItem } from "@/src/components/ui/toggle-group";
-import { Textarea } from "@/src/components/ui/textarea";
+// import { Textarea } from "@/src/components/ui/textarea";
 import { toast } from "@/src/components/ui/use-toast";
 
-const profileFormSchema = z.object({
+const settingsFormSchema = z.object({
   name: z
     .string()
     .min(1, {
@@ -52,14 +52,27 @@ const profileFormSchema = z.object({
   faqs: z.string().url({ message: "Please enter a valid URL." }),
 });
 
-type SettingsFormValues = z.infer<typeof profileFormSchema>;
+type SettingsFormValues = z.infer<typeof settingsFormSchema>;
 
 // This can come from your database or API.
-const defaultValues: Partial<SettingsFormValues> = {};
+const defaultValues: Partial<SettingsFormValues> = {
+  name: "Sixteen Inc.",
+  website: "https://sixteen.life/",
+  linkedin: "https://www.linkedin.com/company/sixteenlife",
+  industry: "Digital Wellbeing",
+  employee_count: "1-10",
+  description: "Redesign your digital life, reduce your screen time",
+  goals:
+    "Help everyone to be more conscious of where they are spending their time",
+  headquarters: "Delhi, India",
+  funding_round: "seed",
+  faqs: "https://sixteen.life/faq",
+};
 
 export function SettingsForm() {
   const form = useForm<SettingsFormValues>({
-    resolver: zodResolver(profileFormSchema),
+    resolver: zodResolver(settingsFormSchema),
+    defaultValues,
     mode: "onChange",
   });
 
@@ -88,7 +101,9 @@ export function SettingsForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company&apos;s Name</FormLabel>
+                  <FormLabel className="font-normal">
+                    Company&apos;s Name
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>
@@ -97,14 +112,15 @@ export function SettingsForm() {
               )}
             />
           </div>
-          <div className="col-span-6 ">
-            {" "}
+          <div className="col-span-6">
             <FormField
               control={form.control}
               name="website"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company&apos;s Website</FormLabel>
+                  <FormLabel className="font-normal">
+                    Company&apos;s Website
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>
@@ -114,13 +130,14 @@ export function SettingsForm() {
             />
           </div>
           <div className="col-span-6 ">
-            {" "}
             <FormField
               control={form.control}
               name="linkedin"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company&apos;s Linkedin</FormLabel>
+                  <FormLabel className="font-normal">
+                    Company&apos;s Linkedin
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>
@@ -130,13 +147,14 @@ export function SettingsForm() {
             />
           </div>
           <div className="col-span-6 ">
-            {" "}
             <FormField
               control={form.control}
               name="industry"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Company&apos;s Industry</FormLabel>
+                  <FormLabel className="font-normal">
+                    Company&apos;s Industry
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="" {...field} />
                   </FormControl>
@@ -146,13 +164,12 @@ export function SettingsForm() {
             />
           </div>
         </div>
-
         <FormField
           control={form.control}
           name="employee_count"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Employee Count</FormLabel>
+              <FormLabel className="font-normal">Employee Count</FormLabel>
               <ToggleGroup
                 type="single"
                 variant="outline"
@@ -197,7 +214,9 @@ export function SettingsForm() {
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Company&apos;s Description</FormLabel>
+              <FormLabel className="font-normal">
+                Company&apos;s Description
+              </FormLabel>
               <FormControl>
                 <Input placeholder="" {...field} />
               </FormControl>
@@ -213,7 +232,9 @@ export function SettingsForm() {
           name="goals"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>What are your company goals?</FormLabel>
+              <FormLabel className="font-normal">
+                What are your company goals?
+              </FormLabel>
               <FormControl>
                 <Input placeholder="" {...field} />
               </FormControl>
@@ -226,7 +247,7 @@ export function SettingsForm() {
           name="headquarters"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Headquarters</FormLabel>
+              <FormLabel className="font-normal">Headquarters</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field} />
               </FormControl>
@@ -241,7 +262,7 @@ export function SettingsForm() {
               name="funding_round"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Funding Round</FormLabel>
+                  <FormLabel className="font-normal">Funding Round</FormLabel>
                   <Select onValueChange={field.onChange}>
                     <FormControl>
                       <SelectTrigger>
@@ -263,7 +284,7 @@ export function SettingsForm() {
               name={"faqs"}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>FAQs</FormLabel>
+                  <FormLabel className="font-normal">FAQs</FormLabel>
                   <FormControl>
                     <Input {...field} />
                   </FormControl>

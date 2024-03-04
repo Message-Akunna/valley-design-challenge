@@ -20,13 +20,13 @@ export default function DashboardPage() {
       <h2 className="text-3xl font-bold tracking-tight">Settings</h2>
       <Tabs defaultValue="company-info" className="space-y-8">
         <TabsList className="max-w-full">
-          <ScrollArea className="max-w-full">
+          <ScrollArea className="max-w-full whitespace-nowrap">
             <div className="flex w-max space-x-4">
               <TabsTrigger value="analytics" disabled>
                 Your Profile
               </TabsTrigger>
               <TabsTrigger value="company-info">Company Info</TabsTrigger>
-              <TabsTrigger value="reports" disabled>
+              <TabsTrigger value="reports">
                 Manage Seats
               </TabsTrigger>
               <TabsTrigger value="notifications" disabled>

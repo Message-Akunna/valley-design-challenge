@@ -9,7 +9,8 @@ import { MainNav } from "@/src/app/components/main-nav";
 import { UserNav } from "@/src/app/components/user-nav";
 import { Search } from "@/src/app/components/search-nav";
 import { FooterNav } from "@/src/app/components/footer-nav";
-
+//
+import { Toaster } from "@/src/components/ui/toaster";
 //
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: ExamplesLayoutProps) {
             </div>
           </footer>
         </div>
+        <Toaster />
       </body>
     </html>
   );
